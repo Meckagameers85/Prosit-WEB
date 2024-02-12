@@ -198,14 +198,14 @@ section > ul {
     padding: 0px 10px 42px 25px;
 }
 
-#faq li {
+#FAQ li {
     font-weight: bold;
     list-style: none;
     font-size: 1rem;
     margin: 15px 0px 0px 0px;
 }
 
-#faq p {
+#FAQ p {
     font-style: italic;
     color: rgb(100, 100, 100);
     margin: 0;
