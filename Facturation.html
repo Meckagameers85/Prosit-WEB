@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module de facturation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1 class="text-left">Module de facturation</h1>
+        <p class="text-left">Cette page vous permet de nous soumettre vos informations de facturation</p>
+        <nav class="navbar">
+            <span class="navitem">
+                <a href="#Information">Information</a>
+            </span>
+            <span class="navitem">
+                <a href="#FAQ">F.A.Q</a>
+            </span>
+            <span class="navitem">
+                <a href="#Contact">Nous Contacter</a>
+            </span>
+        </nav>
+    </header>
+    <main id="Information">
+        <h2 class="text-left">Informations de facturation</h2>
+        <form action="#" method="post">
+            <div>
+                <label for="Fournisseur" class="text-left">Fournisseur</label>
+                <select name="Fournisseur" id="Fournisseur">
+                    <option value="1">Fournisseur 1</option>
+                    <option value="2">Fournisseur 2</option>
+                    <option value="3">Fournisseur 3</option>
+                    <option value="4">Fournisseur 4</option>
+                    <option value="5">Fournisseur 5</option>
+                </select>
+            </div>
+            <div class="flex-container">
+                <fieldset>
+                    <legend>Entreprise</legend>
+                    <label for="Société">Société*</label><br>
+                    <input type="text" id="Société" placeholder="Nom de la société" size="50" required><br>
+                    <label for="TVA">N° TVA</label><br>
+                    <input type="number" id="TVA" placeholder="TVA"><br>
+                    <label for="Adresse">Adresse</label><br>
+                    <textarea id="Adresse" rows="5" cols="50" placeholder="Adresse complète"></textarea><br>
+                    <label for="CP">Code postal</label><br>
+                    <input type="number" id="CP" placeholder="CP" maxlength="5" minlength="5"><br>
+                    <label for="Ville">Ville</label><br>
+                    <input type="text" id="Ville" placeholder="Nom de la ville"><br>
+                </fieldset>
+                <fieldset>
+                    <legend>Représentant</legend>
+                    <label>Genre</label>
+                    <div class="radio">
+                        <input type="radio" id="Homme" name="Genre" value="H">
+                        <label for="Homme">Homme</label>
+                        <input type="radio" id="Femme" name="Genre" value="F">
+                        <label for="Femme">Femme</label>
+                        <input type="radio" id="Malade" name="Genre" value="M">
+                        <label for="Malade">Non Spécifié</label>
+                    </div>
+                    <label for="name">Nom*</label><br>
+                    <input type="text" id="name" placeholder="Nom de famille" size="45" required><br>
+                    <label for="prenom">Prénom*</label><br>
+                    <input type="text" id="prenom" placeholder="Prénom" size="45" required><br>
+                    <label for="email">Courriel*</label><br>
+                    <input type="email" id="email" placeholder="E-mail" size="25" required><br>
+                    <label for="tel">Téléphone</label><br>
+                    <input type="number" id="tel" placeholder="Téléphone" pattern="[0-9]{10}" maxlength="10"><br>
+                </fieldset>
+            </div>
+            <label class="text-left">Commentaires</label><br>
+            <textarea class="text-left commentaires" rows="5" cols="100" placeholder="Information supplémentaire à nous faire parvenir"></textarea>
+            <div class="text-left"><p>* : Champs obligatoires</p></div>
+            <div class="button-container">
+                <button type="submit" class="text-left">Envoyer</button>
+                <button type="reset">Réinitialiser</button>
+            </div>
+        </form>
+        <section id="faq" class="text-left">
+            <h2>Questions fréquentes</h2>
+            <ul>
+                <li>Mon fournisseur n'apparaît pas dans la liste déroulante, comment faire ?
+                    <p>Sélectionnez "Autre" dans la liste déroulante puis indiquez-nous le nom de votre fournisseur dans le champ "Commentaires".</p>
+                </li>
+                <li>Quel est le délai de réponse ?
+                    <p>Nos équipes traitent votre demande au plus vite. Vous obtiendrez généralement une réponse sous 48h (jours ouvrés)</p>
+                </li>
+                <li id="Contact">J'ai une question, comment vous contacter ?
+                    <p>Vous pouvez utilisez notre <a href="#">formulaire de contact</a> ou nous envoyer directement un mail à <a href="mailto:info@mycompany.com">info@mycompany.com</a>.<p>
+                </li>
+            </ul>
+        </section>
+    </main>
+</body>
+</html>
