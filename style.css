@@ -51,6 +51,26 @@ h2 {
     text-decoration: underline;
 }
 
+/********* Bouton up *********/
+
+.btn {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    cursor: pointer;
+}
+
+.icone {
+    width: 60px;
+}
+
+
 /******************** Main ********************/
 
 header > p {
@@ -71,6 +91,13 @@ label {
     margin: 0;
 }
 
+#Input_Fournisseur {
+    display: none;
+    margin: 0 0 0 5px;
+    padding: 0;
+    height: 30px;
+
+}
 legend {
     font-weight: bold;
     text-transform: uppercase;
@@ -114,8 +141,14 @@ textarea {
     width: 80px;
 }
 
-#tel {
+#Tel {
     width: 150px;
+}
+
+.msg_error {
+    color: rgb(255, 0, 0);
+    margin: 0 0 0 10px;
+    display: none;
 }
 
 .radio {
@@ -131,7 +164,7 @@ textarea {
 }
 
 .radio label {
-    font-size: 1rem;
+    font-size: 0.8rem;
     font-weight: normal;
     text-transform: none;
     color: rgb(0, 0, 0)
@@ -243,6 +276,12 @@ section > ul {
     .commentaires {
         width: calc(100% - 30px);
     }
+    .msg_error {
+        margin: 0 0 5px 10px;
+    }
+    input {
+        margin-bottom: 5px;
+    }
 }
 
 @media (min-width: 481px) and (max-width: 767px) {
@@ -260,6 +299,12 @@ section > ul {
     .button-container {
         text-align: center;
         margin-top: 10px; /* Espacement si nécessaire */
+    }
+    .msg_error {
+        margin: 0 0 5px 10px;
+    }
+    input {
+        margin-bottom: 5px;
     }
 }
 
@@ -281,5 +326,15 @@ section > ul {
     }
     #Societe, #Adresse, #name, #prenom {
         width: calc(100% - 5px);
+    }
+    #Input_Fournisseur {
+        margin: 5px 0px 5px 15px;
+        padding: 0px;
+    }
+    .msg_error {
+        margin: 0 0 5px 10px;
+    }
+    input {
+        margin-bottom: 5px;
     }
 }

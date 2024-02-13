@@ -6,6 +6,7 @@
     <title>Module de facturation</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
 </head>
 <body>
     <header>
@@ -23,30 +24,33 @@
             </span>
         </nav>
     </header>
+    <a href="#" class="btn">
+        <img src="arrow-up.svg" class="icone">
+    </a>
     <main id="Information">
         <h2 class="text-left">Informations de facturation</h2>
-        <form action="#" method="post">
+        <form action="#" method="post" onsubmit="ConfirmeSend(event)">
             <div>
                 <label for="Fournisseur" class="text-left">Fournisseur</label>
-                <select name="Fournisseur" id="Fournisseur" onchange="AutreFournisseur()">
+                <select name="Fournisseur" id="Fournisseur" onchange="AutreFournisseur(event)">
                     <option value="F1">Fournisseur 1</option>
                     <option value="F2">Fournisseur 2</option>
                     <option value="F3">Fournisseur 3</option>
                     <option value="F4">Fournisseur 4</option>
                     <option value="Autre">Autre</option>
-                </select><input type="text" id="Input_Fournisseur" placeholder="Nom du fournisseur" size="30" style="display: none; margin-left: 10px; height: 30px;">
+                </select><input type="text" id="Input_Fournisseur" placeholder="Nom du fournisseur" size="30">
             </div>
             <div class="flex-container">
                 <fieldset>
                     <legend>Entreprise</legend>
                     <label for="Société">Société*</label><br>
-                    <input type="text" id="Societe" placeholder="Nom de la société" size="50" required><br>
+                    <input type="text" id="Societe" placeholder="Nom de la société" size="50" onblur="empty('Societe')" required><br><!-- required -->
                     <label for="TVA">N° TVA</label><br>
-                    <input type="text" id="TVA" placeholder="TVA" maxlength="13" size="25" oninput="toUpperCase('TVA')" onblur="VerifeTVA('TVA','TVA_Msg_error')"><samp id="TVA_Msg_error" style="display: none; margin-left: 10px;"></samp><br>
+                    <input type="text" id="TVA" placeholder="TVA" maxlength="13" size="25" oninput="toUpperCase('TVA')" onblur="VerifeTVA('TVA','TVA_Msg_error')"><samp id="TVA_Msg_error" class="msg_error"></samp><br>
                     <label for="Adresse">Adresse</label><br>
                     <textarea id="Adresse" rows="5" cols="50" placeholder="Adresse complète"></textarea><br>
                     <label for="CP">Code postal</label><br>
-                    <input type="text" id="CP" placeholder="CP" maxlength="5" onblur="FiveNumbers('CP','CP_Msg_error')"><samp id="CP_Msg_error" style="display: none; margin-left: 10px;"></samp><br>
+                    <input type="text" id="CP" placeholder="CP" maxlength="5" onblur="FiveNumbers('CP','CP_Msg_error')"><samp id="CP_Msg_error" class="msg_error"></samp><br>
                     <label for="Ville">Ville</label><br>
                     <input type="text" id="Ville" placeholder="Nom de la ville"><br>
                 </fieldset>
@@ -62,13 +66,13 @@
                         <label for="Malade">Non Spécifié</label>
                     </div>
                     <label for="name">Nom*</label><br>
-                    <input type="text" id="name" placeholder="Nom de famille" size="45" oninput="toUpperCase('name')" required><br>
+                    <input type="text" id="name" placeholder="Nom de famille" size="45" oninput="toUpperCase('name')" onblur="empty('name')" required><br><!-- required -->
                     <label for="prenom">Prénom*</label><br>
-                    <input type="text" id="prenom" placeholder="Prénom" size="45" required><br>
+                    <input type="text" id="prenom" placeholder="Prénom" size="45" onblur="empty('prenom')" required><br><!-- required -->
                     <label for="email">Courriel*</label><br>
-                    <input type="email" id="email" placeholder="E-mail" size="25" required><br>
+                    <input type="email" id="email" placeholder="E-mail" size="25" onblur="empty('email')" required><br><!-- required -->
                     <label for="tel">Téléphone</label><br>
-                    <input type="text" id="Tel" placeholder="Téléphone" maxlength="10" onblur="TenNumbers('Tel','Tel_Msg_error')"><samp id="Tel_Msg_error" style="display: none;"></samp><br><br>
+                    <input type="text" id="Tel" placeholder="Téléphone" maxlength="10" onblur="TenNumbers('Tel','Tel_Msg_error')"><samp id="Tel_Msg_error" class="msg_error"></samp><br><br>
                 </fieldset>
             </div>
             <label class="text-left">Commentaires</label><br>
@@ -76,7 +80,7 @@
             <div class="text-left"><p>* : Champs obligatoires</p></div>
             <div class="button-container">
                 <button type="submit" class="text-left">Envoyer</button>
-                <button type="reset">Réinitialiser</button>
+                <button type="reset" onclick="Reset()">Réinitialiser</button>
             </div>
         </form>
         <section id="FAQ" class="text-left">
