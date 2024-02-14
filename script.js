@@ -99,3 +99,15 @@ function ConfirmeSend(event) {
         event.preventDefault(); // Annule l'action par défaut si l'utilisateur annule
     }
 }
+
+window.addEventListener('scroll', function() {
+    var nav = document.querySelector('nav');
+    var BtnToUp = document.getElementById('BtnToUp');
+
+    if (nav.getBoundingClientRect().bottom < 0) {
+        BtnToUp.style.display = "block";
+    }
+    else {
+        BtnToUp.style.display = "none";
+    }
+});

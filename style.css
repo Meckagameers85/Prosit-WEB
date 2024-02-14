@@ -57,17 +57,17 @@ h2 {
     height: 50px;
     width: 50px;
     border-radius: 50%;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     position: fixed;
-    right: 20px;
-    bottom: 20px;
+    right: 30px;
+    bottom: 30px;
     cursor: pointer;
 }
 
 .icone {
-    width: 60px;
+    width: 75px;
 }
 
 /******************** Main ********************/
