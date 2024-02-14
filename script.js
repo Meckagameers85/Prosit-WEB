@@ -110,5 +110,4 @@ window.addEventListener('scroll', function() {
     else {
         BtnToUp.style.display = "none";
     }
-    
 });
