@@ -5,16 +5,43 @@ function toUpperCase(id) {
 }
 
 // Fonction pour vérifier si un champ contient exactement cinq chiffres
-function FiveNumbers(id, msg_error) {
-    var input = document.getElementById(id);
-    var msg = document.getElementById(msg_error);
-    if (input.value.length === 5 && /^\d+$/.test(input.value)) {
-        msg.style.display = "none"; // Cache le message d'erreur
-    } else {
-        msg.style.display = "inline-block"; // Affiche le message d'erreur
-        msg.textContent = "Veuillez entrer 5 chiffres."; // Message d'erreur
-        msg.style.color = "red"; // Couleur du message d'erreur
-        input.style.border = "2px solid red"; // Change la couleur de la bordure
+function CodePostal() {
+    const input_CP = document.getElementById('CP');
+    const msg_CP = document.getElementById('CP_Msg_error');
+
+    const select_ville = document.getElementById("Ville");
+    const options = select_ville.querySelectorAll("option");
+    for (const option of options) {
+        option.remove();
+    }
+
+    if (input_CP.value.length === 5 && /^\d+$/.test(input_CP.value)) {
+        msg_CP.style.display = "none"; // Cache le message d'erreur
+        input_CP.style.border = "none"; // Change la couleur de la bordure
+        select_ville.removeAttribute("disabled");
+
+        fetch('https://geo.api.gouv.fr/communes?codePostal=' + input_CP.value)
+            .then(response => response.json())
+            .then(data => {
+                data.forEach(ville => {
+                    const option = document.createElement("option");
+                    option.innerText = ville.nom;
+                    select_ville.appendChild(option);
+                });
+            });
+    } 
+    else {
+        msg_CP.style.display = "inline-block"; // Affiche le message d'erreur
+        msg_CP.textContent = "Veuillez entrer 5 chiffres."; // Message d'erreur
+        msg_CP.style.color = "red"; // Couleur du message d'erreur
+        input_CP.style.border = "2px solid red"; // Change la couleur de la bordure
+        
+        const option = document.createElement("option");
+        option.innerText = "Code postal invalide";
+        option.setAttribute("disabled", "disabled");
+        option.setAttribute("selected", "selected");
+        select_ville.appendChild(option);
+        select_ville.setAttribute("disabled", "disabled");
     }
 }
 
@@ -55,13 +82,12 @@ function AutreFournisseur() {
         input.style.display = "inline-block"; // Affiche le champ de saisie supplémentaire
     } else {
         input.style.display = "none"; // Cache le champ de saisie supplémentaire
-        input.style.border = "2px solid red"; // Change la couleur de la bordure
     }
 }
 
 function empty(ID) {
     var input = document.getElementById(ID);
-    if (input.value === "") {
+    if (input.value == "") {
         input.style.border = "2px solid red";
     }
 }
