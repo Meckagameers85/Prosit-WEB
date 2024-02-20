@@ -118,9 +118,8 @@ function Reset() {
     input_Tel.style.border = "none";
 
     const select_ville = document.getElementById("Ville");
-    const options = select_ville.querySelectorAll("option");
     const option = document.createElement("option");
-    option.innerText = "Nom de la ville";
+    option.innerText = "Nom de la vill";
     option.setAttribute("disabled", "disabled");
     option.setAttribute("selected", "selected");
     select_ville.appendChild(option);
