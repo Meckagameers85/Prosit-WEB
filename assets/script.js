@@ -119,7 +119,7 @@ function Reset() {
 
     const select_ville = document.getElementById("Ville");
     const option = document.createElement("option");
-    option.innerText = "Nom de la vill";
+    option.innerText = "Nom de la ville";
     option.setAttribute("disabled", "disabled");
     option.setAttribute("selected", "selected");
     select_ville.appendChild(option);
