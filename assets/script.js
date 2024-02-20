@@ -116,6 +116,15 @@ function Reset() {
     input_email.style.border = "none";
     var input_Tel = document.getElementById("Tel");
     input_Tel.style.border = "none";
+
+    const select_ville = document.getElementById("Ville");
+    const options = select_ville.querySelectorAll("option");
+    const option = document.createElement("option");
+    option.innerText = "Nom de la ville";
+    option.setAttribute("disabled", "disabled");
+    option.setAttribute("selected", "selected");
+    select_ville.appendChild(option);
+    select_ville.setAttribute("disabled", "disabled");
 }
 
 // Fonction pour demander confirmation avant d'envoyer le formulaire
