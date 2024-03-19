@@ -1,104 +1,24 @@
 <!DOCTYPE html>
-<html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Module de facturation</title>
-        <link rel="stylesheet" href="assets/style.css">
-        <script src="assets/script.js"></script>
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
-    </head>
-    <body>
-        <header>
-            <h1 class="text-left">Module de facturation</h1>
-            <p class="text-left">Cette page vous permet de nous soumettre vos informations de facturation</p>
-            <nav class="navbar">
-                <span class="navitem">
-                    <a href="#Information">Information</a>
-                </span>
-                <span class="navitem">
-                    <a href="#FAQ">F.A.Q</a>
-                </span>
-                <span class="navitem">
-                    <a href="#Contact">Nous Contacter</a>
-                </span>
-            </nav>
-        </header>
-        <a href="#" class="btn" id="BtnToUp">
-            <img src="assets/arrow-up.svg" class="icone">
-        </a>
-        <main id="Information">
-            <h2 class="text-left">Informations de facturation</h2>
-            <form action="#" method="post" onsubmit="ConfirmeSend(event)">
-                <div>
-                    <label for="Fournisseur" class="text-left">Fournisseur</label>
-                    <select name="Fournisseur" id="Fournisseur" onchange="AutreFournisseur()">
-                        <option value="F1">Fournisseur 1</option>
-                        <option value="F2">Fournisseur 2</option>
-                        <option value="F3">Fournisseur 3</option>
-                        <option value="F4">Fournisseur 4</option>
-                        <option value="Autre">Autre</option>
-                    </select><input type="text" id="Input_Fournisseur" placeholder="Nom du fournisseur" size="30">
-                </div>
-                <div class="flex-container">
-                    <fieldset>
-                        <legend>Entreprise</legend>
-                        <label for="Société">Société*</label><br>
-                        <input type="text" id="Societe" placeholder="Nom de la société" size="50" onblur="empty('Societe')" required><br><!-- required -->
-                        <label for="TVA">N° TVA</label><br>
-                        <input type="text" id="TVA" placeholder="TVA" maxlength="13" size="25" oninput="toUpperCase('TVA')" onblur="VerifeTVA('TVA','TVA_Msg_error')"><samp id="TVA_Msg_error" class="msg_error"></samp><br>
-                        <label for="Adresse">Adresse</label><br>
-                        <textarea id="Adresse" rows="5" cols="50" placeholder="Adresse complète"></textarea><br>
-                        <label for="CP">Code postal</label><br>
-                        <input type="text" id="CP" placeholder="CP" maxlength="5" onblur="CodePostal()"><samp id="CP_Msg_error" class="msg_error"></samp><br>
-                        <label for="Ville">Ville</label><br>
-                        <select type="text" id="Ville" disabled>
-                            <option>Nom de la ville</option>
-                        </select><br>
-                    </fieldset>
-                    <fieldset>
-                        <legend>Représentant</legend>
-                        <label>Genre</label>
-                        <div class="radio">
-                            <input type="radio" id="Homme" name="Genre" value="H">
-                            <label for="Homme">Homme</label>
-                            <input type="radio" id="Femme" name="Genre" value="F">
-                            <label for="Femme">Femme</label>
-                            <input type="radio" id="Malade" name="Genre" value="M">
-                            <label for="Malade">Non Spécifié</label>
-                        </div>
-                        <label for="name">Nom*</label><br>
-                        <input type="text" id="name" placeholder="Nom de famille" size="45" oninput="toUpperCase('name')" onblur="empty('name')" required><br><!-- required -->
-                        <label for="prenom">Prénom*</label><br>
-                        <input type="text" id="prenom" placeholder="Prénom" size="45" onblur="empty('prenom')" required><br><!-- required -->
-                        <label for="email">Courriel*</label><br>
-                        <input type="email" id="email" placeholder="E-mail" size="25" onblur="empty('email')" required><br><!-- required -->
-                        <label for="tel">Téléphone</label><br>
-                        <input type="text" id="Tel" placeholder="Téléphone" maxlength="10" onblur="TenNumbers('Tel','Tel_Msg_error')"><samp id="Tel_Msg_error" class="msg_error"></samp><br><br>
-                    </fieldset>
-                </div>
-                <label class="text-left">Commentaires</label><br>
-                <textarea class="text-left commentaires" rows="5" cols="100" placeholder="Information supplémentaire à nous faire parvenir"></textarea>
-                <div class="text-left"><p>* : Champs obligatoires</p></div>
-                <div class="button-container">
-                    <button type="submit" class="text-left">Envoyer</button>
-                    <button type="reset" onclick="Reset()">Réinitialiser</button>
-                </div>
-            </form>
-            <section id="FAQ" class="text-left">
-                <h2>Questions fréquentes</h2>
-                <ul>
-                    <li>Mon fournisseur n'apparaît pas dans la liste déroulante, comment faire ?
-                        <p>Sélectionnez "Autre" dans la liste déroulante puis indiquez-nous le nom de votre fournisseur dans le champ "Commentaires".</p>
-                    </li>
-                    <li>Quel est le délai de réponse ?
-                        <p>Nos équipes traitent votre demande au plus vite. Vous obtiendrez généralement une réponse sous 48h (jours ouvrés)</p>
-                    </li>
-                    <li id="Contact">J'ai une question, comment vous contacter ?
-                        <p>Vous pouvez utilisez notre <a href="#">formulaire de contact</a> ou nous envoyer directement un mail à <a href="mailto:info@mycompany.com">info@mycompany.com</a>.<p>
-                    </li>
-                </ul>
-            </section>
-        </main>
-    </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test PWA</title>
+    <link rel="manifest" href="/Tests/TutoVideo/manifest.json">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css">
+    <script>
+        window.addEventListener('load', () => {
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('/Tests/TutoVideo/sw.js')
+            }
+        })
+    </script>
+</head>
+<body>
+    <h1>Ma ToDo List</h1>
+    <icon class="ri-basketball-fill"></icon>
+</body>
+
 </html>

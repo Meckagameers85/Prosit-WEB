@@ -1,0 +1,17 @@
+{
+    "name": "Tuto PWA",
+    "icons": [
+        {
+            "src": "/Tests/TutoVideo/icons/512.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        },
+        {
+            "src": "/Tests/TutoVideo/icons/192.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        }
+    ],
+    "start_url": "/?action=PWA",
+    "display" : "standalone"
+}
