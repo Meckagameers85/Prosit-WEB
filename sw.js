@@ -10,7 +10,7 @@ self.addEventListener("install", (event) => {
         (async () => {
             const cache = await caches.open(PREFIX);
             await Promise.all(
-                [...CACHED_FILES,"/Tests/TutoVideo/offline.html"].map((path) => {
+                [...CACHED_FILES,"/offline.html"].map((path) => {
                     return cache.add(new Request(path));
                 })
             );
@@ -50,7 +50,7 @@ self.addEventListener("fetch", (event) => {
                     return await fetch(event.request);
                 } catch (e) {
                     const cache = await caches.open(PREFIX);
-                    return await cache.match("/Tests/TutoVideo/offline.html");
+                    return await cache.match("/offline.html");
                 }
             })()
         );
